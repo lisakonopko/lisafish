@@ -1,3 +1,6 @@
+import os
+import time
+
 class bcolors(object):
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -53,16 +56,18 @@ fish3 = """
              `-.___,-' ap              
 """
 
-import os
-import time
-clear = lambda : os.system('tput reset')
+
+def clear():
+    os.system('tput reset')
+    
 
 def show_fish(fishy, delay=2):
   clear()
   print bcolors.OKBLUE + fishy + bcolors.ENDC
   time.sleep(delay)
 
-while True:
-  show_fish(fish)
-  show_fish(fish2)
-  show_fish(fish3)
+if __name__ == '__main__':
+  while True:
+    show_fish(fish)
+    show_fish(fish2)
+    show_fish(fish3)
